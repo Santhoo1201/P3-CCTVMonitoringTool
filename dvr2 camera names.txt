@@ -1,0 +1,7 @@
+DVR2
+Cam-1 - Training Room(Board View) - 3rd-Floor	
+Cam-2 - Dining Hall - 3rd-Floor	
+Cam-3 - MD Cabin - 3rd-Floor
+Cam-4 - Waiting Hall - 3rd-Floor	
+Cam-5 - Training Room(Entry View) - 3rd-Floor
+Cam-6 - Store Room - 3rd-Floor

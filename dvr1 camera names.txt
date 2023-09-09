@@ -1,0 +1,18 @@
+
+DVR-1
+Cam-1 - Not Connected  - 2nd-Floor	
+Cam-2  - Main Hall(Left)  -2nd-Floor	
+Cam-3  -Main Hall(Right)  -2nd-Floor
+Cam-4  -Main Hall(Entrance)  -2nd-Floor
+Cam-5  - Main Hall(Server Room-Front)  - 2nd-Floor	
+Cam-6  - Server Room  - 2nd-Floor	
+Cam-7  - Beeja  - 1st-Floor	
+Cam-8  - Beeja (Training Hall Right)  - 1st-Floor	
+Cam-9  - Beeja (Training Hall Left)  -1st-Floor	
+Cam-10  - Beeja Hall-2  -1st-Floor	
+Cam-11  -Beeja Hall-1(Front-View)  - 1st-Floor
+Cam-12  -Beeja Hall-2 (Cam-2) - 1st-Floor
+Cam-13  - Beeja (Entrance View)  - 1st-Floor
+Cam-14  - Groundfloor-Gate(Right)  -0th-Floor
+Cam-15 - Groundfloor-Gate(Left)  -0th-Floor
+Cam-16  - HR Room - 2nd-Floor
