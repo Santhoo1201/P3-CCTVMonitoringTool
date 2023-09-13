@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-sm navbar-da">
+    <div class="container-fluid">
+        <button onclick="history.back()"class="btn btn-primary navbar-btn"style="width:80;height: 35;">Go Back</button> 
+        <!-- <button (click)="logOut()"class="btn btn-danger navbar-btn">Log out</button> -->
+    </div>       
+           
+    
+</nav>
+<body>
+    <div class="form">
+        <div class="container">
+            <form #createdvr1detailsform="ngForm" (ngSubmit)="onSubmit()">
+            <div>
+                <h1>DVR-1</h1>
+            </div>
+            <!-- <div class="date">
+                <label for="date">Date & Time: </label>
+                <input type="datetime-local">
+            </div> -->
+            <div>
+                <table class="table">
+                    <tr>
+                        <th>Camera Name</th>
+                        <th>Location</th>
+                        <th>Floor</th>
+                    </tr>
+                    <tr>
+                        <td><input type="text" class ="form-control" id = "cameraName" [ngModelOptions]="{standalone: true}"
+                            [(ngModel)] = "dvrDetail.cameraName" name = "cameraName"required #cameraName="ngModel"></td>
+                        <td><input type="text"  class ="form-control" id = "location" [ngModelOptions]="{standalone: true}"
+                            [(ngModel)] = "dvrDetail.location" name = "location"required #location="ngModel"></td>
+                        <td><input type="number" min="0" max="5" class ="form-control" id = "floorNumber" [ngModelOptions]="{standalone: true}"
+                            [(ngModel)] = "dvrDetail.floorNumber" name = "floorNumber"required #floorNumber="ngModel"></td>
+                    </tr>
+                    
+
+                </table>
+            </div>
+
+            <div class="save">
+                <button class="success" type="submit"><img src="save.png" alt="" (click)="onSubmit()">Save</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</body>

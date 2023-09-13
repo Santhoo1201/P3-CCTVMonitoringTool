@@ -1,0 +1,40 @@
+<section>
+  <div class="signin">
+
+    <div class="content">
+      <h1>CCTV</h1>
+      <h2>Monitoring Tool</h2>
+    <form #loginuserform="ngForm" (ngSubmit)="loginUser()">
+      <div class="form">
+
+        <div class="inputBox">
+
+          <input type="sfmId" class="form-control"  placeholder="Enter SFM Id" name="sfmId" [ngModelOptions]="{standalone: true}" [(ngModel)]="adminDetails.sfmId" #sfmId="ngModel"  required> 
+
+        </div>
+
+        <div class="inputBox">
+
+          <input type="password" class="form-control"  placeholder="Enter password" name="pwd" [ngModelOptions]="{standalone: true}"  [(ngModel)]="adminDetails.adminPassword" #password="ngModel" required> 
+
+        </div>
+
+        <div class="links"> <a href="#">Forgot Password</a> <a href="#">Signup</a>
+
+        </div>
+
+        <div class="inputBox">
+
+          <input type="submit" value="Login">
+
+        </div>
+
+      </div>
+     </form>
+
+    </div>
+
+  </div>
+
+</section>
+ 

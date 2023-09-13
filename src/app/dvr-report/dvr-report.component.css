@@ -1,0 +1,92 @@
+body {
+    margin: 0px;
+  }
+  
+  .table {
+    width: auto;
+    background-color: white;
+    border: 1px solid black;
+    border-collapse: collapse;
+    background-image: url("../../assets/satvat-logo.png");
+    background-repeat: no-repeat;
+    background-size:cover ;
+    background-size: 100%;
+  }
+  
+  tr,
+  th,
+  td {
+    height: 35px;
+    border: 1px solid black;
+    text-align: center;
+    padding: 0px 7px 0px 7px;
+  }
+  
+  img {
+    height: 25px;
+    width: 25px;
+  }
+  
+  .download {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  button {
+    border: 1px solid green;
+    border-radius: 20px;
+    height: 40px;
+    font-size: larger;
+  }
+  
+  button:hover {
+    background-color: green;
+    color: white;
+  
+  }
+  
+  .sidebar a {
+    display: block;
+    color: white;
+    padding: 16px;
+    text-decoration: none;
+  }
+  
+  .sidebar a.active {
+    background-color:white;
+    color: black;
+    font-size: larger;
+  }
+  
+  .sidebar a:hover:not(.active) {
+    background-color: #66d1f5;
+    color: white;
+  }
+  
+  .sidebar {
+    background-color: #053B50;
+    height: 100vh;
+    text-align: center;
+  }
+  
+  .dashboard {
+    display: grid;
+    grid-template-columns: 200px auto;
+    padding-right: 5px;
+  }
+  
+  .report {
+    overflow: scroll;
+    background:linear-gradient(#053B50,#66d1f5,#053B50);
+  }
+  
+  h1 {
+    text-align: center;
+    color: white;
+  }
+  h2{
+    padding-top: 10px;
+    margin-top: 0px;
+    color: white;
+  }

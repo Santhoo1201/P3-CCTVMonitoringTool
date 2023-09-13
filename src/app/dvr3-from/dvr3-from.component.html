@@ -1,0 +1,91 @@
+
+    
+<nav class="navbar navbar-expand-sm navbar-da">
+    <div class="container-fluid">
+        <button onclick="history.back()"class="btn btn-primary navbar-btn"style="width:80;height: 35;">Go Back</button> 
+        <!-- <button (click)="logOut()"class="btn btn-danger navbar-btn">Log out</button> -->
+    </div>       
+           
+    
+</nav>
+<body>
+    <div class="form">
+        <div class="container">
+            <form #dvr3fform="ngForm" (ngSubmit)="onSubmit()">
+            <div>
+                <h1>DVR-3</h1>
+            </div>
+            <div class="date">
+                <label for="date">Date & Time: </label>
+                <input type="datetime-local" [(ngModel)]="liveDate" #date="ngModel" required>
+            </div>
+            <div>
+                <table class="table">
+                    <tr>
+                        <th>Camera Name</th>
+                        <th>Location</th>
+                        <th>Floor</th>
+                        <th>Live Status </th>
+                        <th>Playback Status</th>
+                    </tr>
+                    <tr *ngFor = "let dvrs of dvr; ">
+                        
+                            <td >{{dvrs.cameraName}}</td>
+                        
+                        
+                            <td >{{dvrs.location}}</td>
+                        
+                        
+                            <td >{{dvrs.floorNumber}}</td>
+                        
+                        
+                            <td>
+
+                                <div class="">
+                                    <select name="Status" id="liveStatus" [(ngModel)]="liveStatus" #liveStatusValue="ngModel" required >
+                                        <option value="2">Working</option>
+                                        <option value="1">Not Working</option>
+                                    </select>
+                                </div>
+                                
+                               
+                            </td>
+                        
+                        
+                            <td>
+                                <div class="">
+                                    <select name="Status" id="playStatus" [(ngModel)]="playStatus" #playStatusValue="ngModel" required>
+                                        <option value="2">Working</option>
+                                        <option value="1">Not Working</option>
+                                    </select>
+                                </div>
+                               </td>
+                        
+                    </tr>
+                    
+
+                </table>
+            </div>
+
+            <div class="save">
+                <button class="success" type="submit"><img src="save.png" alt="" >Save</button>
+                <button class="danger" onclick="ExportToExcel('xlsx')"> <img src="report.png" alt="">Report</button>
+            </div>
+         </form>
+         <!-- <script>
+            function show() {
+                document.getElementById("detail").innerHTML = "Successfully Saved"
+            }
+            function ExportToExcel(type, fn, dl) {
+                var elt = document.getElementById('tbl_exporttable_to_xls');
+                var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+                return dl ?
+                    XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+                    XLSX.writeFile(wb, fn || ('DVR-1 Report.' + (type || 'xlsx')));
+            }
+    
+        </script> -->
+        </div>
+    </div>
+</body>
+

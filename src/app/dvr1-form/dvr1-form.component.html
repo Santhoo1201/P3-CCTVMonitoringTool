@@ -1,0 +1,101 @@
+<nav class="navbar navbar-expand-sm navbar-da">
+    <div class="container-fluid">
+        <button onclick="history.back()" class="btn btn-primary navbar-btn" style="width:80;height: 35;">Go
+            Back</button>
+        <!-- <button (click)="logOut()"class="btn btn-danger navbar-btn">Log out</button> -->
+    </div>
+
+    <!-- <ul class = "navbar-nav">
+        <button id="home"(click)="hrLogin()"> <i  class="bi bi-person"></i>HR Login</button>
+
+        <button id="home"(click)="technicalSignIn()"> <i  class="bi bi-person"></i>Technical Login</button>
+        <button id="home"(click)="contactUs()"> <i  class="fa fa-phone"></i>Contact us</button>
+        <button id="home"(click)="aboutUs()"> <i  class="fa fa-phone"></i>About us</button>
+
+    </ul> -->
+</nav>
+
+<body>
+    <div class="form">
+        <div class="container">
+            <form #dvr1fform="ngForm" (ngSubmit)="onSubmit()">
+                <div>
+                    <h1>DVR-1</h1>
+                </div>
+                <div class="date">
+                    <label for="date">Date : </label>
+                    <!-- <input type="date" [ngModel]="liveDate" #date="ngModel" required> -->
+                    <p>{{liveDate | date: 'dd/MM/yyyy'}}</p>
+                </div>
+                <div>
+                    <table class="table">
+                        <tr>
+                            <th>Camera Name</th>
+                            <th>Location</th>
+                            <th>Floor</th>
+                            <th>Live Status </th>
+                            <th>Playback Status</th>
+                        </tr>
+                        <tr *ngFor="let dvrs of dvr ;let i=index;"   >
+
+                            <td  >{{dvrs.cameraName}}</td>
+
+
+                            <td >{{dvrs.location}}</td>
+
+
+                            <td >{{dvrs.floorNumber}}</td>
+
+
+                            <td>
+
+                                <div class="">
+                                    <select     (change)="live($event.target, i)"  required >
+                                        <option selected></option>
+                                        <option *ngFor="let v of selectOptions" [value]="v.vl">{{v.vl}}</option>
+                                       
+                                    </select>
+                                </div>
+
+
+                            </td>
+
+
+                            <td>
+                                <div class="">
+                                    <select     (change)="play($event, i)"  required  >
+                                        <option selected></option>
+
+                                        <option  value="Working">Working</option>
+                                        <option value="Not Working">Not Working</option>
+                                    </select>
+                                </div>
+                            </td>
+
+                        </tr>
+
+
+                    </table>
+                </div>
+
+                <div class="save d-flex justify-content-center">
+                    <button class="success" type="submit"><img src="save.png" alt="">Save</button>
+                    <button class="danger" onclick="ExportToExcel('xlsx')"> <img src="report.png" alt="">Report</button>
+                </div>
+            </form>
+            <!-- <script>
+            function show() {
+                document.getElementById("detail").innerHTML = "Successfully Saved"
+            }
+            function ExportToExcel(type, fn, dl) {
+                var elt = document.getElementById('tbl_exporttable_to_xls');
+                var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+                return dl ?
+                    XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+                    XLSX.writeFile(wb, fn || ('DVR-1 Report.' + (type || 'xlsx')));
+            }
+    
+        </script> -->
+        </div>
+    </div>
+</body>

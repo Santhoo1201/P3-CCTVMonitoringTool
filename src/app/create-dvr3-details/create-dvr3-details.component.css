@@ -1,0 +1,93 @@
+.table{
+    background-color: white;
+    border: 1px solid black;
+   width: 700px;
+    border-collapse: collapse;
+    background-repeat: no-repeat;
+  }
+  tr,th,td{
+    height: 35px;
+    border: 1px solid black;
+    text-align:center;
+    padding:0px 7px 0px 7px;
+  }
+  .container{
+    width: 800px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color:#053B50;
+  }
+  th{
+    background-color:#66d1f5;
+    color: black;
+  }
+  .form{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .save{
+    display: flex;
+    gap: 30px;
+    padding-bottom: 10px;
+  }
+  .save button{
+    height: 35px;
+    width: 75px;
+    border-radius: 20px;
+  }
+  .success{
+    border-color: green;
+    color: green;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+  }
+  .success:hover{
+    background-color: green;
+    color: white;
+    transition-duration: 0.1s;
+  }
+  button img{
+    height:10px;
+  }
+  input[type=text]{
+    border: none;
+    padding:0px;
+    height: 30px;
+    width: 200px;
+    border-collapse: collapse; 
+  }
+  input[type=number]{
+    border: none;
+    padding:0px;
+    height: 30px;
+    width: 40px;
+    border-collapse: collapse;
+  }
+  .date{
+    width:700px;
+    display:flex;
+    flex-direction: row;
+    justify-content:right;
+    color: white;
+  }
+  #slt,option{
+    border: none;
+    padding:0px;
+    height: 30px;
+    border-collapse: collapse;
+  }
+  h1{
+    color: white;
+  }
+  body{
+    background-image: url("../../assets/satvat-logo.png");
+    background-repeat: no-repeat;
+    background-size:contain;
+}
