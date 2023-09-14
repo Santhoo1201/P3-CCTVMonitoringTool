@@ -29,7 +29,7 @@
                 </tr>
                 <tr *ngFor="let n of dateArray">
                     <td>{{n.date}}</td>
-                    <ng-container *ngFor="let dv of filterDataArray;" >
+                    <ng-container *ngFor="let dv of newCameraArray;" >
                     <td >{{dv.liveStatus}}</td>
                     <td>{{dv.playBackStatus}}</td>
                     </ng-container>

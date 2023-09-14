@@ -96,30 +96,30 @@ export class DvrReportComponent implements OnInit {
 //   this.filterDataArray=this.dvrDetails.filter((obj,index,self)=>index === self.findIndex((t)=>( t.cameras === obj.cameras && t.date === obj.date && t.floorNo ==obj.floorNo && t.roomName == obj.roomName) ))
   
 // }
-var group={};
-var groupedData=data.reduce((result:any,current:any)=>{
- group =result.find((item:any)=> item.date === current.date);
-if (group){
-  result.push(current.date,current.roomName,current.floorNo,current.playBackStatus,current.liveStatus,current.cameras)
-}
-else{
-  result.push({date:current.date,
-    value:[ {
+// var group={};
+// var groupedData=data.reduce((result:any,current:any)=>{
+//  group =result.find((item:any)=> item.date === current.date);
+// if (group){
+//   result.push(current.date,current.roomName,current.floorNo,current.playBackStatus,current.liveStatus,current.cameras)
+// }
+// else{
+//   result.push({date:current.date,
+//     value:[ {
    
-      cameras:current.cameras,
-      roomName:current.roomName,
-      floorNo:current.floorNo,
-      playBackStatus:current.playBackStatus,
-      liveStatus:current.liveStatus
-      }],
+//       cameras:current.cameras,
+//       roomName:current.roomName,
+//       floorNo:current.floorNo,
+//       playBackStatus:current.playBackStatus,
+//       liveStatus:current.liveStatus
+//       }],
    
-  })
-}
+//   })
+// }
 
-return result
-},[]);
+// return result
+// },[]);
 
-console.log(groupedData);
+// console.log(groupedData);
 // this.filterDataArray=groupedData.map((t:any )=>{
 //   return this.mainArray={
 //     date:t.date,
@@ -143,58 +143,58 @@ console.log(this.mainArray);
 
 // map functions
 
-// this.cameraArray= this.dvrDetails.filter((obj,index,self)=>index === self.findIndex((t)=>( t.cameras === obj.cameras && t.date === obj.date && t.floorNo ==obj.floorNo && t.roomName == obj.roomName) ))
-// console.log(this.cameraArray);
-// this.newCameraArray=this.dvrDetails.filter((obj,index,self)=>index === self.findIndex((t)=> t.cameras === obj.cameras))
-// console.log(this.newCameraArray);
-// this.floorNameArray=this.dvrDetails.filter((obj,index,self)=>index === self.findIndex((t)=> t.roomName === obj.roomName))
-// console.log(this.floorNameArray);
+this.cameraArray= this.dvrDetails.filter((obj,index,self)=>index === self.findIndex((t)=>( t.cameras === obj.cameras && t.date === obj.date && t.floorNo ==obj.floorNo && t.roomName == obj.roomName) ))
+console.log(this.cameraArray);
+this.newCameraArray=this.dvrDetails.filter((obj,index,self)=>index === self.findIndex((t)=> t.cameras === obj.cameras))
+console.log(this.newCameraArray);
+this.floorNameArray=this.dvrDetails.filter((obj,index,self)=>index === self.findIndex((t)=> t.roomName === obj.roomName))
+console.log(this.floorNameArray);
 
-// this.dateArray= this.dvrDetails.filter((obj,index,self)=>index === self.findIndex((t)=> t.date === obj.date))
-// console.log(this.dateArray);
+this.dateArray= this.dvrDetails.filter((obj,index,self)=>index === self.findIndex((t)=> t.date === obj.date))
+console.log(this.dateArray);
 
-        // this.filterDataArray= this.dvrDetails.map((ar) => {
+        this.filterDataArray= this.dvrDetails.map((ar) => {
           
-        //   for (let index = 0; index < this.dateArray.length; index++) {
-        //     this.dateElement=this.dateArray[index]
+          for (let index = 0; index < this.dateArray.length; index++) {
+            this.dateElement=this.dateArray[index]
 
-        //     for (let index = 0; index < this.cameraArray.length; index++) {
-        //      this.cameraElement=this.cameraArray[index]
+            for (let index = 0; index < this.cameraArray.length; index++) {
+             this.cameraElement=this.cameraArray[index]
              
              
-        //      this.mainArray= [
-        //         {
-        //           totalData: [
-        //             {
-        //               date: this.dateElement,
-        //               value: [{
+             this.mainArray= [
+                {
+                  totalData: [
+                    {
+                      date: this.dateElement,
+                      value: [{
                      
                        
-        //                 cameras:this.cameraElement,
-        //                 roomName: this.floorNameArray,
-        //                 floorNo: ar.floorNo,
-        //                 liveStatus: ar.liveStatus,
-        //                 playBackStatus: ar.playBackStatus
-        //               }
-        //               ]
-        //             },
-        //           ]
-        //         }
-        //       ]
+                        cameras:this.cameraElement,
+                        roomName: this.floorNameArray,
+                        floorNo: ar.floorNo,
+                        liveStatus: ar.liveStatus,
+                        playBackStatus: ar.playBackStatus
+                      }
+                      ]
+                    },
+                  ]
+                }
+              ]
 
 
-        //     }
+            }
            
          
-        //   }
+          }
        
 
-        //   return this.mainArray
-        // } 
-        // )
+          return this.mainArray
+        } 
+        )
 
 
-        // console.log(this.filterDataArray);
+        console.log(this.filterDataArray);
 
 
       })
