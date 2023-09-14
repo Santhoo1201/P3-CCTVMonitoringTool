@@ -87,7 +87,7 @@ section .signin .content .form .inputBox input
   background:#8ac6ce;
   border: none;
   outline: none;
-  padding: 25px 10px 7.5px;
+  padding: 16px 16px;
   border-radius: 4px;
   color:#000;
   font-weight: 500;
@@ -141,4 +141,14 @@ section .signin .content .form .inputBox i
 input[type="submit"]:active
 {
   opacity: 0.6;
+}
+
+.ta{
+  font-weight: bold !important;
+  color: #000;
+  background: #00e1ff !important;
+}
+
+.n{
+  width: 100%;
 }
