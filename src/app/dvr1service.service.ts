@@ -42,4 +42,8 @@ public saveAllDvr1Details(dvrdetails:Dvr1Detail):Observable<any>{
   return this.http.post<any>("http://localhost:8080/api/dvr1/saveall",dvrdetails);
 }
 
+public saveAllDvr2Details(dvrdetails:Dvr1Detail):Observable<any>{
+  return this.http.post<any>("http://localhost:8080/api/dvr2/saveall",dvrdetails);
+}
+
 }

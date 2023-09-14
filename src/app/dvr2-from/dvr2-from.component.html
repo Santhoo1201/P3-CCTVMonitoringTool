@@ -23,8 +23,9 @@
                 <h1>DVR-2</h1>
             </div>
             <div class="date">
-                <label for="date">Date & Time: </label>
-                <input type="datetime-local" [(ngModel)]="liveDate" #date="ngModel" required>
+                <label for="date">Date : </label>
+                <!-- <input type="date" [ngModel]="liveDate" #date="ngModel" required> -->
+                <p>{{liveDate | date: 'dd/MM/yyyy'}}</p>
             </div>
             <div>
                 <table class="table">
@@ -35,7 +36,7 @@
                         <th>Live Status </th>
                         <th>Playback Status</th>
                     </tr>
-                    <tr *ngFor = "let dvrs of dvr; ">
+                    <tr *ngFor="let dvrs of dvr ;let i=index;">
                         
                             <td >{{dvrs.cameraName}}</td>
                         
@@ -49,24 +50,27 @@
                             <td>
 
                                 <div class="">
-                                    <select name="Status" id="liveStatus" [(ngModel)]="liveStatus" #liveStatusValue="ngModel" required >
-                                        <option value="2">Working</option>
-                                        <option value="1">Not Working</option>
+                                    <select     (change)="live($event.target, i)"  required >
+                                        <option selected></option>
+                                        <option *ngFor="let v of selectOptions" [value]="v.vl">{{v.vl}}</option>
+                                       
                                     </select>
                                 </div>
-                                
-                               
+
+
                             </td>
-                        
-                        
+
+
                             <td>
                                 <div class="">
-                                    <select name="Status" id="playStatus" [(ngModel)]="playStatus" #playStatusValue="ngModel" required>
-                                        <option value="2">Working</option>
-                                        <option value="1">Not Working</option>
+                                    <select     (change)="play($event, i)"  required  >
+                                        <option selected></option>
+
+                                        <option  value="Working">Working</option>
+                                        <option value="Not Working">Not Working</option>
                                     </select>
                                 </div>
-                               </td>
+                            </td>
                         
                     </tr>
                     

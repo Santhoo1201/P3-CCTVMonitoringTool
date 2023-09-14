@@ -19,20 +19,28 @@ msg="";
 hrId:any;
 constructor(private _service:LoginHrDetailsServiceService,private _router:Router){}
 loginUser(){
-  this._service.loginUserFromRemote(this.adminDetails).subscribe(
-    data=>{ 
-      this.adminDetails=data;
-      this.hrId=this.adminDetails.id;
-      console.log("response recieved");
-      // alert("login successfully execute");
-    this._router.navigate(['/HomePage',this.hrId]);
-  },
-      error=>{
-      console.log("something went wrong");
-      this.msg="invalid email or password";
-      alert(this.msg);
+
+  if(!(this.adminDetails.adminPassword == null||this.adminDetails.adminName == null )){
+
+    this._service.loginUserFromRemote(this.adminDetails).subscribe(
+      data=>{ 
+        this.adminDetails=data;
+        this.hrId=this.adminDetails.id;
+        console.log("response recieved");
+        // alert("login successfully execute");
+      this._router.navigate(['/HomePage',this.hrId]);
+    },
+        error=>{
+        console.log("something went wrong");
+        this.msg="invalid email or password";
+        alert(this.msg);
+    }
+    )
   }
-  )
+  else {
+    alert("enter valid creditential")
+  }
+ 
 
 }
 }
