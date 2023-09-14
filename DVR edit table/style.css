@@ -19,11 +19,13 @@
 .table{
     background-color: white;
     border: 1px solid black;
-   width: 700px;
+   width: 600px;
     border-collapse: collapse;
     background-repeat: no-repeat;
   }
   tr,th,td{
+   
+
     height: 35px;
     border: 1px solid black;
     text-align:center;
@@ -42,6 +44,7 @@
   th{
     background-color:#66d1f5;
     color: black;
+    width: 30px;
   }
   .form{ 
     display: flex;
@@ -116,5 +119,8 @@
   body{
     background-image: url(satvat-logo.png);
     background-repeat: no-repeat;
-    background-size:contain;
+    background-size:cover;
+}
+#data td input[type=text]{
+  width:auto;
 }

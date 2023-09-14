@@ -14,11 +14,16 @@
 </head>
 
 <body>
+
+
     <h1>CCTV <br> Monitoring Tool</h1>
 
     <marquee behavior="alternate" direction="right">SATVAT INFOSOL PRIVATE LIMITED</marquee>
+    <div class="go">
+        <a href="../index.html"><button class="logout">Log Out</button></a>
+    </div>
     <div class="logo">
-        
+
         <div class="card">
             <div class="form">
                 <div class="row">
@@ -26,14 +31,14 @@
                         <a href="../DVR-form-table/index-dvr1.html">
                             <button class="one">DVR-1</button>
                         </a>
-                        <a href="../DVR edit table/dvr-1-edit.html"">Create/Edit</a>
-                </div>
+                        <a href="../DVR edit table/dvr-1-edit.html">Create/Edit</a>
+                    </div>
 
-                <div class=" dvr-2">
-                            <a href="../DVR-form-table/index-dvr2.html">
-                                <button class="two">DVR-2</button>
-                            </a>
-                            <a href="../DVR edit table/dvr-2-edit.html">Create/Edit</a>
+                    <div class=" dvr-2">
+                        <a href="../DVR-form-table/index-dvr2.html">
+                            <button class="two">DVR-2</button>
+                        </a>
+                        <a href="../DVR edit table/dvr-2-edit.html">Create/Edit</a>
                     </div>
 
 
@@ -46,36 +51,39 @@
                 </div>
                 <div class="date">
                     <div class="dropdown">
-                        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        <button class="btn btn-warning dropdown-toggle h-50" type="button" id="dropdownMenuButton1"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Report
                         </button>
-                        <ul class="dropdown-menu text-center " aria-labelledby="dropdownMenuButton1">
-                            <li class="pb-1"><label for="date">From:</label>
+                        <ul class="dropdown-menu text-center p-1" aria-labelledby="dropdownMenuButton1">
+                            <li class="d-flex p-1">
+                                <label for="date">From:</label>
                                 <input type="date">
                             </li>
-                            <li class="pb-1"><label for="date">To:</label>
+                            <li class="d-flex p-1 gap-3">
+                                <label for="date">To :</label>
                                 <input type="date">
                             </li>
-                            <li class="pb-1"><label for="Select">Select DVR:</label><br>
-
+                            <li class="d-flex p-1 gap-2">
+                                <label for="Select"> DVR :</label>
+                                <br>
                                 <select name="1" id="">
+                                    <option value="0">-Select-</option>
                                     <option value="1">DVR-1</option>
                                     <option value="2">DVR-2</option>
                                     <option value="3">DVR-3</option>
                                 </select>
                             </li>
-                            
-                                <li class="btn btn-info pb-1"><a href="../Report status/index-dvr1-report.html">Download</a></li>
+
+                            <li class="btn btn-info w-55 ">
+                                <a href="../Report status/index-dvr1-report.html" class="fs-6">View Report</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
 
             </div>
         </div>
-<div><a href="../Sign in page/index.html"><button class="logout">Log Out</button></a></div>
-
-    </div>
 </body>
 
 </html>

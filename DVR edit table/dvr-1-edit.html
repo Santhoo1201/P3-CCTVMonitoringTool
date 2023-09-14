@@ -9,6 +9,7 @@
 </head>
 
 <body>
+
     <div class="form">
         <div class="container">
             <div class="heading">
@@ -20,106 +21,58 @@
                 <input type="datetime-local">
             </div>
             <p id="detail"></p>
-            <div>
+            <div class="thead">
                 <table class="table">
                     <tr>
                         <th>Camera Name</th>
                         <th>Location</th>
                         <th>Floor</th>
                     </tr>
-                    <tr>
-                        <td>Camera-1</td>
-                        <td><div class=""><input type="text"></div></td>
-                        <td><div class=""><input type="number" min="0" max="5"></div></td>
-                    </tr>
-                    <tr>
-                        <td>Camera-2</td>
-                        <td><div class=""><input type="text"></div></td>
-                        <td><div class=""><input type="number" min="0" max="5"></div></td>
-                    </tr>
-                    <tr>
-                        <td>Camera-3</td>
-                        <td><div class=""><input type="text"></div></td>
-                        <td><div class=""><input type="number" min="0" max="5"></div></td>
-                    </tr>
-                    <tr>
-                        <td>Camera-4</td>
-                        <td><div class=""><input type="text"></div></td>
-                        <td><div class=""><input type="number" min="0" max="5"></div></td>
-                    </tr>
-                    <tr>
-                        <td>Camera-5</td>
-                        <td><div class=""><input type="text"></div></td>
-                        <td><div class=""><input type="number" min="0" max="5"></div></td>
-                    </tr>
-                    <tr>
-                        <td>Camera-6</td>
-                        <td><div class=""><input type="text"></div></td>
-                        <td><div class=""><input type="number" min="0" max="5"></div></td>
-                    </tr>
-                    <tr>
-                        <td>Camera-7</td>
-                        <td><div class=""><input type="text"></div></td>
-                        <td><div class=""><input type="number" min="0" max="5"></div></td>
-                    </tr>
-                    <tr>
-                        <td>Camera-8</td>
-                        <td><div class=""><input type="text"></div></td>
-                        <td><div class=""><input type="number" min="0" max="5"></div></td>
-                    </tr>
-                    <tr>
-                        <td>Camera-9</td>
-                        <td><div class=""><input type="text"></div></td>
-                        <td><div class=""><input type="number" min="0" max="5"></div></td>
-                    </tr>
-                    <tr>
-                        <td>Camera-10</td>
-                        <td><div class=""><input type="text"></div></td>
-                        <td><div class=""><input type="number" min="0" max="5"></div></td>
-                    </tr>
-                    <tr>
-                        <td>Camera-11</td>
-                        <td><div class=""><input type="text"></div></td>
-                        <td><div class=""><input type="number" min="0" max="5"></div></td>
-                    </tr>
-                    <tr>
-                        <td>Camera-12</td>
-                        <td><div class=""><input type="text"></div></td>
-                        <td><div class=""><input type="number" min="0" max="5"></div></td>
-                    </tr>
-                    <tr>
-                        <td>Camera-13</td>
-                        <td><div class=""><input type="text"></div></td>
-                        <td><div class=""><input type="number" min="0" max="5"></div></td>
-                    </tr>
-                    <tr>
-                        <td>Camera-14</td>
-                        <td><div class=""><input type="text"></div></td>
-                        <td><div class=""><input type="number" min="0" max="5"></div></td>
-                    </tr>
-                    <tr>
-                        <td>Camera-15</td>
-                        <td><div class=""><input type="text"></div></td>
-                        <td><div class=""><input type="number" min="0" max="5"></div></td>
-                    </tr>
-                    <tr>
-                        <td>Camera-16</td>
-                        <td><div class=""><input type="text"></div></td>
-                        <td><div class=""><input type="number" min="0" max="5"></div></td>
-                    </tr>
+                    <tbody id="data">
 
+                    </tbody>
                 </table>
             </div>
 
             <div class="save">
                 <button class="success" onclick="show()"><img src="save.png" alt="">Save</button>
+                <button onclick="add()">Add Row</button>
+                <button onclick="remove()">Delete</button>
+
             </div>
         </div>
     </div>
+
     <script>
-        function show(){
-            document.getElementById("detail").innerHTML="Successfully Saved"
+        function show() {
+            document.getElementById("detail").innerHTML = "Successfully Saved"
         }
+        
+        i = 1;
+        function add() {
+
+            content = `
+            <tr id='data${i}'>
+                <td>Camera-${i}</td>
+                <td><input type="text"></td>
+                <td><input type="number"></td>
+            </tr>
+            `
+            document.getElementById('data').insertAdjacentHTML('beforeend', content)
+            i = i + 1
+
+        }
+        add()
+
+        function remove() {
+            if (i != 2) {
+                i = i - 1
+                document.getElementById('data' + i).remove();
+
+            }
+        }
+
+
     </script>
 </body>
 
