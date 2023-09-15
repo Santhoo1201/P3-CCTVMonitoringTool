@@ -15,23 +15,23 @@
             <table class="table">
                 <tr >
                     <th rowspan="1">Camera Name</th>
-                    <th *ngFor="let dvrdetail of newCameraArray;" colspan="2" rowspan="2">{{dvrdetail.cameras}}<br>{{dvrdetail.roomName}}<br>{{dvrdetail.floorNo}}</th>
+                    <th *ngFor="let dvrdetail of cameraArray;" colspan="2" rowspan="2">{{dvrdetail.cameras}}<br>{{dvrdetail.roomName}}<br>{{dvrdetail.floorNo}}</th>
                     
                 </tr>
                 <tr>
                     <th rowspan="2">Date</th>
                 </tr>
                 <tr  >
-                    <ng-container *ngFor="let a of newCameraArray;">
+                    <ng-container *ngFor="let a of cameraArray;">
                     <th >Live</th>
                     <th >Playback</th>
                 </ng-container>
                 </tr>
-                <tr *ngFor="let n of dateArray">
+                <tr *ngFor="let n of mainArray;let i=index">
                     <td>{{n.date}}</td>
-                    <ng-container *ngFor="let dv of newCameraArray;" >
-                    <td >{{dv.liveStatus}}</td>
-                    <td>{{dv.playBackStatus}}</td>
+                    <ng-container *ngFor="let dv of n.cameraName;" >
+                    <td >{{dv.values[0].liveStatus}}</td>
+                    <td>{{dv.values[0].playBackStatus}}</td>
                     </ng-container>
                     
                 </tr>

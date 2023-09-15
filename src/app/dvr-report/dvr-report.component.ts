@@ -19,11 +19,11 @@ export class DvrReportComponent implements OnInit {
   mainArray:Array<any>=[];
   filterDataArray: Array<any> = [];
   cameraArray:Array<any>=[];
-  newCameraArray:Array<any>=[];
   cameraElement:Array<any>=[];
   floorNameArray:Array<any>=[];
-  dateArray:Array<any>=[];
   dateElement:any;
+
+  
 
   newData: any = [
     {
@@ -88,6 +88,74 @@ export class DvrReportComponent implements OnInit {
 
         this.dvrDetails = data;
 
+        console.log(this.dvrDetails);
+        
+   interface transFormedArray{
+          date:Date,
+          values:Array<{
+             cameras:String,
+             roomName:String,
+             floorNo:number,
+             liveStatus:String,
+             playBackStatus:String
+          }>
+        }
+
+        var exsistingDateEntry:any;
+        var exsistingCameraEntry:any;
+      
+
+        const finalArray:Array<transFormedArray>=this.dvrDetails.reduce((result:any,current:any)=>{
+          exsistingDateEntry=result.find((entry:any)=>entry.date === current.date);
+
+          if(exsistingDateEntry){
+            exsistingCameraEntry=exsistingDateEntry.cameraName.find((camera:any)=>camera.cameras === current.cameras);
+            if(exsistingCameraEntry){
+              exsistingCameraEntry.values.push({
+               
+                roomName:current.roomName,
+                floorNo:current.floorNo,
+                liveStatus:current.liveStatus,
+                playBackStatus:current.playBackStatus
+             });
+            }
+            else{
+              exsistingDateEntry.cameraName.push({
+                cameras:current.cameras,
+                values:[{
+                  roomName:current.roomName,
+                floorNo:current.floorNo,
+                liveStatus:current.liveStatus,
+                playBackStatus:current.playBackStatus
+                }],
+              });
+            }
+          }
+          else{
+            result.push({
+              date:current.date,
+              cameraName:[{
+                cameras:current.cameras,
+                values:[
+                {
+                  roomName:current.roomName,
+                  floorNo:current.floorNo,
+                  liveStatus:current.liveStatus,
+                  playBackStatus:current.playBackStatus
+                },
+                ],
+              },
+            ],
+            });
+          }
+
+        return result;
+      
+      },[] as transFormedArray[]);
+
+      console.log(finalArray);
+      this.mainArray=finalArray;
+
 
 // loop functions
 // this.dateArray= this.dvrDetails.filter((obj,index,self)=>index === self.findIndex((t)=> t.date === obj.date))
@@ -136,65 +204,74 @@ export class DvrReportComponent implements OnInit {
 // })
 
 
-console.log(this.mainArray);
 
 
         // console.log(this.dvrDetails);
 
 // map functions
 
-this.cameraArray= this.dvrDetails.filter((obj,index,self)=>index === self.findIndex((t)=>( t.cameras === obj.cameras && t.date === obj.date && t.floorNo ==obj.floorNo && t.roomName == obj.roomName) ))
+this.cameraArray= this.dvrDetails.filter((obj,index,self)=>index === self.findIndex((t)=>( t.cameras === obj.cameras &&  t.floorNo ==obj.floorNo && t.roomName == obj.roomName) ))
 console.log(this.cameraArray);
-this.newCameraArray=this.dvrDetails.filter((obj,index,self)=>index === self.findIndex((t)=> t.cameras === obj.cameras))
-console.log(this.newCameraArray);
-this.floorNameArray=this.dvrDetails.filter((obj,index,self)=>index === self.findIndex((t)=> t.roomName === obj.roomName))
-console.log(this.floorNameArray);
+// this.newCameraArray=this.dvrDetails.filter((obj,index,self)=>index === self.findIndex((t)=> t.cameras === obj.cameras))
+// console.log(this.newCameraArray);
+// this.floorNameArray=this.dvrDetails.filter((obj,index,self)=>index === self.findIndex((t)=> t.roomName === obj.roomName))
+// console.log(this.floorNameArray);
 
-this.dateArray= this.dvrDetails.filter((obj,index,self)=>index === self.findIndex((t)=> t.date === obj.date))
-console.log(this.dateArray);
+// this.dateArray= this.dvrDetails.filter((obj,index,self)=>index === self.findIndex((t)=> t.date === obj.date))
+// console.log(this.dateArray);
 
-        this.filterDataArray= this.dvrDetails.map((ar) => {
+        // this.filterDataArray= this.dvrDetails.map((ar) => {
           
-          for (let index = 0; index < this.dateArray.length; index++) {
-            this.dateElement=this.dateArray[index]
+        //   for (let index = 0; index < this.dateArray.length; index++) {
+        //     this.dateElement=this.dateArray[index]
 
-            for (let index = 0; index < this.cameraArray.length; index++) {
-             this.cameraElement=this.cameraArray[index]
+        //     for (let index = 0; index < this.cameraArray.length; index++) {
+        //      this.cameraElement=this.cameraArray[index]
              
              
-             this.mainArray= [
-                {
-                  totalData: [
-                    {
-                      date: this.dateElement,
-                      value: [{
+        //      this.mainArray= [
+        //         {
+        //           totalData: [
+        //             {
+        //               date: this.dateElement,
+        //               value: [{
                      
                        
-                        cameras:this.cameraElement,
-                        roomName: this.floorNameArray,
-                        floorNo: ar.floorNo,
-                        liveStatus: ar.liveStatus,
-                        playBackStatus: ar.playBackStatus
-                      }
-                      ]
-                    },
-                  ]
-                }
-              ]
+        //                 cameras:this.cameraElement,
+        //                 roomName: this.floorNameArray,
+        //                 floorNo: ar.floorNo,
+        //                 liveStatus: ar.liveStatus,
+        //                 playBackStatus: ar.playBackStatus
+        //               }
+        //               ]
+        //             },
+        //           ]
+        //         }
+        //       ]
 
 
-            }
+        //     }
            
          
-          }
+        //   }
        
 
-          return this.mainArray
-        } 
-        )
+        //   return this.mainArray
+        // } 
+        // )
 
+      //  interface transFormedArray{
+      //     date:Date,
+      //     values:Array<{
+      //        cameras:String,
+      //        roomName:String,
+      //        floorNo:number,
+      //        liveStatus:String,
+      //        playBackStatus:String
+      //     }>
+      //   }
 
-        console.log(this.filterDataArray);
+  
 
 
       })
