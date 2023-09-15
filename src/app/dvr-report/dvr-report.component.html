@@ -1,47 +1,61 @@
 <!-- <body> -->
    
     <div class="dashboard">
-        <div class="code">
+        <!-- <div class="code">
             <div class="sidebar">
                 <h2>Report Status</h2>
                 <a class="active" href="#">DVR-1</a>
                 <a href="./index-dvr2-report.html">DVR-2</a>
                 <a href="./index-dvr3-report.html">DVR-3</a>
             </div>
-        </div>
+        </div> -->
 
-        <div class="report">
-            <h1>DVR-1</h1>
-            <table class="table">
-                <tr >
-                    <th rowspan="1">Camera Name</th>
-                    <th *ngFor="let dvrdetail of cameraArray;" colspan="2" rowspan="2">{{dvrdetail.cameras}}<br>{{dvrdetail.roomName}}<br>{{dvrdetail.floorNo}}</th>
-                    
-                </tr>
-                <tr>
-                    <th rowspan="2">Date</th>
-                </tr>
-                <tr  >
-                    <ng-container *ngFor="let a of cameraArray;">
-                    <th >Live</th>
-                    <th >Playback</th>
-                </ng-container>
-                </tr>
-                <tr *ngFor="let n of mainArray;let i=index">
-                    <td>{{n.date}}</td>
-                    <ng-container *ngFor="let dv of n.cameraName;" >
-                    <td >{{dv.values[0].liveStatus}}</td>
-                    <td>{{dv.values[0].playBackStatus}}</td>
-                    </ng-container>
-                    
-                </tr>
+        <div class="report d-flex justify-content-center">
+          
 
+            <div class="nn ">
+             
+
+                <div class="">
+                    <h1>{{this.dvr|uppercase }}</h1>
+
+                    <div class="overflow-scroll">
+                    <table id="htmlData" class="table">
+                        <tr class="ht">{{this.dvr|uppercase }}</tr>
+                        <tr >
+                            <th rowspan="1">Camera Name</th>
+                            <th *ngFor="let dvrdetail of cameraArray;" colspan="2" rowspan="2">{{dvrdetail.cameras}}<br>{{dvrdetail.roomName}}<br>{{dvrdetail.floorNo}}</th>
+                            
+                        </tr>
+                        <tr>
+                            <th rowspan="2">Date</th>
+                        </tr>
+                        <tr  >
+                            <ng-container *ngFor="let a of cameraArray;">
+                            <th >Live</th>
+                            <th >Playback</th>
+                        </ng-container>
+                        </tr>
+                        <tr *ngFor="let n of mainArray;let i=index">
+                            <td>{{n.date}}</td>
+                            <ng-container *ngFor="let dv of n.cameraName;" >
+                            <td >{{dv.values[0].liveStatus}}</td>
+                            <td>{{dv.values[0].playBackStatus}}</td>
+                            </ng-container>
+                            
+                        </tr>
+        
+                       
+                    </table>
+                </div>
+                    <div class="download">
+                        <button (click)="savePdf()" >Download</button>
+                    </div>
+                </div>
                
-            </table>
-            <div class="download">
-                <button>Download</button>
             </div>
-        </div>
+            </div>
 
     </div>
 <!-- </body> -->
+
