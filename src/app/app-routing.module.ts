@@ -9,6 +9,8 @@ import { Dvr2FromComponent } from './dvr2-from/dvr2-from.component';
 import { CreateDvr2DetailsComponent } from './create-dvr2-details/create-dvr2-details.component';
 import { Dvr3FromComponent } from './dvr3-from/dvr3-from.component';
 import { CreateDvr3DetailsComponent } from './create-dvr3-details/create-dvr3-details.component';
+import { ForgotPasswordComponent } from './login-hr-details/forgot-password/forgot-password.component';
+
 
 const routes: Routes = [
  
@@ -25,6 +27,7 @@ const routes: Routes = [
   {path:'CreateDvr2Details/:id',component:CreateDvr2DetailsComponent},
   {path:'Dvr3From',component:Dvr3FromComponent},
   {path:'CreateDvr3Details/:id',component:CreateDvr3DetailsComponent},
+  {path:'forgot-password',component:ForgotPasswordComponent}
 ];
 
 @NgModule({

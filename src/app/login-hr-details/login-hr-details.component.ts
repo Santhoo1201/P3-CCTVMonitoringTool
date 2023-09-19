@@ -20,7 +20,9 @@ hrId:any;
 constructor(private _service:LoginHrDetailsServiceService,private _router:Router){}
 loginUser(){
 
-  if(((this.adminDetails.adminPassword != ""||null) ||(this.adminDetails.adminName != "" ||null) )){
+  console.log(this.adminDetails);
+  
+  if(((this.adminDetails.adminName != "" ||null|| undefined)||(this.adminDetails.adminPassword != ""||null || undefined) && (this.adminDetails.sfmId != "" || null|| undefined ) && (this.adminDetails.id !=  null|| undefined ))){
 
     this._service.loginUserFromRemote(this.adminDetails).subscribe(
       data=>{ 
@@ -38,9 +40,14 @@ loginUser(){
     )
   }
   else {
-    alert("enter valid creditential")
+    alert("Enter valid credentials")
   }
  
 
+}
+
+
+toForgotPasswordPage(){
+  this._router.navigate(['/forgot-password']);
 }
 }

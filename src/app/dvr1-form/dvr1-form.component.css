@@ -31,6 +31,7 @@ th{
 }
 .save{
   display: flex;
+  justify-content: center;
   gap: 30px;
   padding-bottom: 10px;
 }
@@ -78,9 +79,16 @@ button img{
 }
 h1{
   color: white;
+  text-align: center;
 }
 body{
   background-image: url("../../assets/satvat-logo.png");
   background-repeat: no-repeat;
   background-size:cover;
+  height: 90vh;
+}
+
+.container-fluid{
+  display: flex;
+  justify-content: flex-end;
 }

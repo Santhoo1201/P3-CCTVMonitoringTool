@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Dvr1serviceService } from '../dvr1service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Dvr1Detail } from '../dvr1-detail';
-import { map } from 'rxjs';
-import { TypeModifier } from '@angular/compiler';
+// import { map } from 'rxjs';
+// import { TypeModifier } from '@angular/compiler';
 import jsPDF from 'jspdf';
+import 'jspdf-autotable'
 import html2canvas from 'html2canvas';
+import autoTable from 'jspdf-autotable';
 
 @Component({
   selector: 'app-dvr-report',
@@ -287,15 +289,19 @@ console.log(this.cameraArray);
   // pdf function
 
   savePdf(){
-    let DATA: any = document.getElementById('htmlData');
-    html2canvas(DATA).then((canvas) => {
-      let fileWidth = 208;
-      let fileHeight = (canvas.height * fileWidth) / canvas.width;
-      const FILEURI = canvas.toDataURL('image/png');
-      let PDF = new jsPDF('p', 'mm', 'a4');
-      let position = 0;
-      PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
-      PDF.save(this.dvr+'.pdf');
-    });
+    // let DATA: any = document.getElementById('htmlData');
+    // html2canvas(DATA).then((canvas) => {
+    //   let fileWidth = 208;
+    //   let fileHeight = (canvas.height * fileWidth) / canvas.width;
+    //   const FILEURI = canvas.toDataURL('image/png');
+    //   let PDF = new jsPDF('p', 'mm', 'a4');
+    //   let position = 0;
+    //   PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
+    //   PDF.save(this.dvr+'.pdf');
+    // });
+
+    const doc = new jsPDF()
+    autoTable(doc, { html: '#htmlData' })
+    doc.save(this.dvr+'.pdf')
   }
 }

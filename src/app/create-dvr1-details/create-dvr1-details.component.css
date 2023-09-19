@@ -1,7 +1,7 @@
 .table{
     background-color: white;
     border: 1px solid black;
-   width: 700px;
+   width: 600px;
     border-collapse: collapse;
     background-repeat: no-repeat;
   }
@@ -32,6 +32,7 @@
   }
   .save{
     display: flex;
+    justify-content: center;
     gap: 30px;
     padding-bottom: 10px;
   }
@@ -84,10 +85,16 @@
     border-collapse: collapse;
   }
   h1{
+    text-align: center;
     color: white;
   }
   body{
     background-image: url("../../assets/satvat-logo.png");
     background-repeat: no-repeat;
-    background-size:contain;
+    background-size:cover;
+    height: 90vh;
+}
+.container-fluid{
+  display: flex;
+  justify-content: flex-end;
 }

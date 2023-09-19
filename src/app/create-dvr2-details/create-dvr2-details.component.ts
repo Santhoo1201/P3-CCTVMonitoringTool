@@ -21,7 +21,7 @@ export class CreateDvr2DetailsComponent implements OnInit{
   NewCreateDvr2(){
     console.log(this.dvrDetail);
     
-          this._service.createNewDvr2(this.dvrDetail,this.dummyId).subscribe(data=>{
+          this._service.createNewDvr2(this.dvrDetail).subscribe(data=>{
             this.dvrDetail=data;
             console.log(this.dvrDetail)
             alert("Successfully added")

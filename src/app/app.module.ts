@@ -15,6 +15,7 @@ import { Dvr2FromComponent } from './dvr2-from/dvr2-from.component';
 import { CreateDvr2DetailsComponent } from './create-dvr2-details/create-dvr2-details.component';
 import { Dvr3FromComponent } from './dvr3-from/dvr3-from.component';
 import { CreateDvr3DetailsComponent } from './create-dvr3-details/create-dvr3-details.component';
+import { ForgotPasswordComponent } from './login-hr-details/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CreateDvr3DetailsComponent } from './create-dvr3-details/create-dvr3-de
     Dvr2FromComponent,
     CreateDvr2DetailsComponent,
     Dvr3FromComponent,
-    CreateDvr3DetailsComponent
+    CreateDvr3DetailsComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-<section>
+<!-- <section>
   <div class="signin">
 
     <div class="content">
@@ -9,17 +9,19 @@
 
         <div class="inputBox">
 
-          <input type="name" class="form-control"  placeholder="Username"  [ngModelOptions]="{standalone: true}" [(ngModel)]="adminDetails.sfmId" #sfmId="ngModel"  required> 
+          <input type="name" class="form-control"  placeholder="Username"  [ngModelOptions]="{standalone: true}" [(ngModel)]="adminDetails.sfmId" #sfmId="ngModel"  required>
+          <p></p> 
 
         </div>
 
         <div class="inputBox">
 
-          <input type="password" class="form-control"  placeholder="Password" [ngModelOptions]="{standalone: true}"  [(ngModel)]="adminDetails.adminPassword" #password="ngModel" required> 
+          <input type="password" class="form-control"  placeholder="Password" [ngModelOptions]="{standalone: true}"  [(ngModel)]="adminDetails.adminPassword" #password="ngModel" required>
+          <p></p> 
 
         </div>
 
-        <div class="links"> <a href="#">Forgot Password</a> <a href="#">Signup</a>
+        <div class="links" > <a class="fpa" (click)="toForgotPasswordPage()" >Forgot Password</a> 
 
         </div>
 
@@ -37,7 +39,49 @@
   </div>
 
 </section>
- 
+  -->
 
 <!-- new -->
 
+
+
+<section>
+  <div class="signin ">
+
+    <div class="content">
+      <h1>CCTV</h1>
+      <h2>Monitoring Tool</h2>
+
+      <form #loginuserform="ngForm" class="n" (ngSubmit)="loginUser()">
+      <div class="form">
+
+        <div class="inputBox">
+
+          <input type="name" class="form-control"    [ngModelOptions]="{standalone: true}" [(ngModel)]="adminDetails.sfmId" #sfmId="ngModel"  required> <i>Username</i>
+
+        </div>
+
+        <div class="inputBox">
+
+          <input type="password" class="form-control"   [ngModelOptions]="{standalone: true}"  [(ngModel)]="adminDetails.adminPassword" #password="ngModel" required> <i>Password</i>
+
+        </div>
+
+        <div class="links"> <a class="fpa" (click)="toForgotPasswordPage()" >Forgot Password</a> <a href="#">Signup</a>
+
+        </div>
+
+        <div class="inputBox">
+
+          <a ><input class="ta" type="submit" value="Login"></a>
+
+
+        </div>
+
+      </div>
+    </form>
+    </div>
+
+  </div>
+
+</section> <!-- partial -->

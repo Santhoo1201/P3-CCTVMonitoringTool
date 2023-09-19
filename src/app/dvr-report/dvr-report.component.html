@@ -20,8 +20,8 @@
                     <h1>{{this.dvr|uppercase }}</h1>
 
                     <div class="overflow-scroll">
-                    <table id="htmlData" class="table">
-                        <tr class="ht">{{this.dvr|uppercase }}</tr>
+                    <table id="htmlData" class="table table-striped">
+                        <tr rowspan="1" class="ht">{{this.dvr|uppercase }}</tr>
                         <tr >
                             <th rowspan="1">Camera Name</th>
                             <th *ngFor="let dvrdetail of cameraArray;" colspan="2" rowspan="2">{{dvrdetail.cameras}}<br>{{dvrdetail.roomName}}<br>{{dvrdetail.floorNo}}</th>

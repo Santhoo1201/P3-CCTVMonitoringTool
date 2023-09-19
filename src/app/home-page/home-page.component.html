@@ -1,65 +1,64 @@
 <div class="bg">
 
-<h1>CCTV <br> Monitoring Tool</h1>
+    <h1>CCTV <br> Monitoring Tool</h1>
 
-<marquee behavior="alternate" direction="right">SATVAT INFOSOL PRIVATE LIMITED</marquee>
-<div class="logo">
-    <div class="container-fluid d-flex justify-content-end">
-        <!-- <button onclick="history.back()"class="btn btn-primary navbar-btn"style="width:80;height: 35;">Go Back</button>  -->
-        <button (click)="logOut()"class="btn btn-danger">Log out</button>
-    </div>  
-<div class="card">
-    <div class="form">
-        <div class="row">
-            <div class="dvr-1">
-                <a (click)="hrLogin()">
-                    <button class="one">DVR-1</button>
-                </a>
-                <a class="createl" (click)="createEditPage()">Create/Edit</a>
-            </div>
+    <h5 >SATVAT INFOSOL PRIVATE LIMITED</h5>
+    <div class="logo">
+        <div class="container-fluid d-flex justify-content-end">
+            <!-- <button onclick="history.back()"class="btn btn-primary navbar-btn"style="width:80;height: 35;">Go Back</button>  -->
+            <button (click)="logOut()" class="btn btn-danger">Log out</button>
+        </div>
+        <div class="card">
+            <div class="form">
+                <div class="row">
+                    <div class="dvr-1">
+                        <a (click)="hrLogin()">
+                            <button class="one">DVR-1</button>
+                        </a>
+                        <a class="createl" (click)="createEditPage()">Create/Edit</a>
+                    </div>
 
-            <div class=" dvr-2">
-                    <a (click)="dvr2Login()">
-                        <button class="two">DVR-2</button>
-                    </a>
-                    <a class="createl" (click)="createDvr2EditPage()">Create/Edit</a>
-            </div>
+                    <div class=" dvr-2">
+                        <a (click)="dvr2Login()">
+                            <button class="two">DVR-2</button>
+                        </a>
+                        <a class="createl" (click)="createDvr2EditPage()">Create/Edit</a>
+                    </div>
 
-                        
-            <div class="dvr-3">
-                <a (click)=" dvr3Login()">
-                    <button class="three">DVR-3</button>
-                </a>
-                <a class="createl" (click)="createDvr3EditPage()">Create/Edit</a>
+
+                    <div class="dvr-3">
+                        <a (click)=" dvr3Login()">
+                            <button class="three">DVR-3</button>
+                        </a>
+                        <a class="createl" (click)="createDvr3EditPage()">Create/Edit</a>
+                    </div>
+                </div>
+                <div class="date">
+                    <div class="dropdown">
+                        <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Report
+                        </button>
+                        <ul class="dropdown-menu text-center p-1" aria-labelledby="dropdownMenuButton1">
+                            <li class=" d-flex p-1"><label for="date">From:</label>
+                                <input type="date" [(ngModel)]="formDate" #date1="ngModel" required>
+                            </li>
+                            <li class="d-flex p-1 gap-3"><label for="date">To:</label>
+                                <input type="date" [(ngModel)]="toDate" #date2="ngModel" required>
+                            </li>
+                            <li class="d-flex p-1 gap-2"><label for="Select"> DVR:</label><br>
+
+                                <select name="1" id="" [(ngModel)]="dvrValue" #select1="ngModel" required>
+                                    <option value="dvr1">DVR-1</option>
+                                    <option value="dvr2">DVR-2</option>
+                                    <option value="dvr3">DVR-3</option>
+                                </select>
+                            </li>
+                            <li class="btn btn-info w-55" (click)="toHome()">View Report</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </div>
-        <div class="date">
-            <div class="dropdown">
-                <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    Report
-                </button>
-                <ul class="dropdown-menu text-center " aria-labelledby="dropdownMenuButton1">
-                    <li class="pb-1"><label for="date">From:</label>
-                        <input type="date" [(ngModel)]="formDate" #date1="ngModel" required >
-                    </li>
-                    <li class="pb-1"><label for="date">To:</label>
-                        <input type="date"  [(ngModel)]="toDate" #date2="ngModel" required>
-                    </li>
-                    <li class="pb-1"><label for="Select">Select DVR:</label><br>
-
-                        <select name="1" id="" [(ngModel)]="dvrValue" #select1="ngModel" required>
-                            <option value="dvr1">DVR-1</option>
-                            <option value="dvr2">DVR-2</option>
-                            <option value="dvr3">DVR-3</option>
-                        </select>
-                    </li>
-                    <li class="btn btn-info pb-1"  (click)="toHome()" >Download</li>
-                </ul>
-            </div>
-        </div>
-
     </div>
-</div>
-</div>
-
