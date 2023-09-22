@@ -6,9 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DVR Form</title>
     <link rel="stylesheet" href="style-dvr1.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
 </head>
 
 <body>
+
     <div class="form">
         <div class="container">
             <div class="heading">
@@ -21,7 +25,7 @@
             </div>
             <p id="detail"></p>
             <div>
-                <table class="table">
+                <table class="table" id="tbl">
                     <tr>
                         <th>Camera Name</th>
                         <th>Location</th>
@@ -90,14 +94,30 @@
 
             <div class="save">
                 <button class="success" onclick="show()"><img src="save.png" alt="">Save</button>
-                <button class="danger"> <img src="report.png" alt="">Report</button>
+                <button class="danger" onclick="print()"><img src="report.png" alt="">Report</button>
             </div>
         </div>
     </div>
+
     <script>
-        function show(){
-            document.getElementById("detail").innerHTML="Successfully Saved"
+        function show() {
+            document.getElementById("detail").innerHTML = "Successfully Saved"
         }
+        window.jsPDF = window.jspdf.jsPDF;
+        var docPDF = new jsPDF();
+        function print() {
+            var elementHTML = document.querySelector("#tbl");
+            docPDF.html(elementHTML, {
+                callback: function (docPDF) {
+                    docPDF.save('DVR-2 Report.pdf');
+                },
+                x:22,
+                y: 10,
+                width: 180,
+                windowWidth: 750
+            });
+        }
+
     </script>
 </body>
 

@@ -1,7 +1,0 @@
-DVR-3
-Cam-1 - Parking Area - 0th-Floor	
-Cam-2 - Entrance - 0th-Floor
-Cam-3 - Frist Floor Steps Entrance - 1st-Floor	
-Cam-4 - Second Floor Steps Entrance - 2nd-Floor	
-Cam-5 - Third Floor Steps Entrance - 3rd-Floor
-Cam-6 - Dining Front View - 3rd-Floor

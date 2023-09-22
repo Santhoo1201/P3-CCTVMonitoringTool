@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report Page</title>
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
 </head>
 
 <body>
@@ -13,329 +17,363 @@
         <div class="code">
             <div class="sidebar">
                 <h2>Report Status</h2>
+                <a href="../Camera status/index.html">Home</a>
                 <a class="active" href="#">DVR-1</a>
                 <a href="./index-dvr2-report.html">DVR-2</a>
                 <a href="./index-dvr3-report.html">DVR-3</a>
+                <hr>
+                <button id="printButton" onclick="print()"><img src="icons8-pdf-40.png" alt="">Download as PDF</button>
+
             </div>
         </div>
+        <div id="printTable">
+            <div class="report">
+                <div class="download">
+                    <h1>DVR-1</h1>
+                </div>
+                <table class="table" id="tbl">
+                    <thead>
+                        <tr>
+                            <th rowspan="1">Camera Name</th>
+                            <th colspan="2" rowspan="1">Cam-1 <span><br>Not Connected <br>2nd-Floor</span></th>
+                            <th colspan="2" rowspan="1">Cam-2 <span><br>Main Hall(Left) <br>2nd-Floor</span></th>
+                            <th colspan="2" rowspan="1">Cam-3 <span><br>Main Hall(Right) <br>2nd-Floor</span></th>
+                            <th colspan="2" rowspan="1">Cam-4 <span><br>Main Hall(Entrance) <br>2nd-Floor</span></th>
+                            <th colspan="2" rowspan="1">Cam-5 <span><br>Main Hall(Server Room-Front)<br>2nd-Floor</span>
+                            </th>
+                            <th colspan="2" rowspan="1">Cam-6 <span><br>Server Room<br> 2nd-Floor</span></th>
+                            <th colspan="2" rowspan="1">Cam-7 <span><br>Beeja<br> 1st-Floor</span></th>
+                            <th colspan="2" rowspan="1">Cam-8 <span><br>Beeja (Training Hall Right)<br> 1st-Floor</span>
+                            </th>
+                            <th colspan="2" rowspan="1">Cam-9<span> <br>Beeja (Training Hall Left)<br> 1st-Floor</span>
+                            </th>
+                            <th colspan="2" rowspan="1">Cam-10 <span><br>Beeja Hall-2<br> 1st-Floor</span></th>
+                            <th colspan="2" rowspan="1">Cam-11 <span><br>Beeja Hall-1(Front-View)<br> 1st-Floor</span>
+                            </th>
+                            <th colspan="2" rowspan="1">Cam-12 <span><br>Beeja Hall-2 (Cam-2)<br> 1st-Floor</span></th>
+                            <th colspan="2" rowspan="1">Cam-13 <span><br>Beeja (Entrance View)<br> 1st-Floor</span></th>
+                            <th colspan="2" rowspan="1">Cam-14 <span><br>Groundfloor-Gate(Right)<br> 0th-Floor</span>
+                            </th>
+                            <th colspan="2" rowspan="1">Cam-15<span> <br>Groundfloor-Gate(Left)<br> 0th-Floor</span>
+                            </th>
+                            <th colspan="2" rowspan="1">Cam-16<span><br>HR Room<br> 2nd-Floor</span></th>
+                        </tr>
 
-        <div class="report">
-            <h1>DVR-1</h1>
-            <table class="table">
-                <tr>
-                    <th rowspan="1">Camera Name</th>
-                    <th colspan="2" rowspan="2">Cam-1 <br>Not Connected <br>2nd-Floor</th>
-                    <th colspan="2" rowspan="2">Cam-2 <br>Main Hall(Left) <br>2nd-Floor</th>
-                    <th colspan="2" rowspan="2">Cam-3 <br>Main Hall(Right) <br>2nd-Floor</th>
-                    <th colspan="2" rowspan="2">Cam-4 <br>Main Hall(Entrance) <br>2nd-Floor</th>
-                    <th colspan="2" rowspan="2">Cam-5 <br>Main Hall(Server Room-Front) <br>2nd-Floor</th>
-                    <th colspan="2" rowspan="2">Cam-6 <br>Server Room<br> 2nd-Floor</th>
-                    <th colspan="2" rowspan="2">Cam-7 <br>Beeja<br> 1st-Floor</th>
-                    <th colspan="2" rowspan="2">Cam-8 <br>Beeja (Training Hall Right)<br> 1st-Floor</th>
-                    <th colspan="2" rowspan="2">Cam-9 <br>Beeja (Training Hall Left)<br> 1st-Floor</th>
-                    <th colspan="2" rowspan="2">Cam-10<br>Beeja Hall-2<br> 1st-Floor</th>
-                    <th colspan="2" rowspan="2">Cam-11 <br>Beeja Hall-1(Front-View)<br> 1st-Floor</th>
-                    <th colspan="2" rowspan="2">Cam-12 <br>Beeja Hall-2 (Cam-2)<br> 1st-Floor</th>
-                    <th colspan="2" rowspan="2">Cam-13 <br>Beeja (Entrance View)<br> 1st-Floor</th>
-                    <th colspan="2" rowspan="2">Cam-14 <br>Groundfloor-Gate(Right)<br> 0th-Floor</th>
-                    <th colspan="2" rowspan="2">Cam-15 <br>Groundfloor-Gate(Left)<br> 0th-Floor</th>
-                    <th colspan="2" rowspan="2">Cam-16<br>HR Room<br> 2nd-Floor</th>
-                </tr>
-                <tr>
-                    <th rowspan="2">Date</th>
-                </tr>
-                <tr>
-                    <th>Live</th>
-                    <th>Playback</th>
-                    <th>Live </th>
-                    <th>Playback</th>
-                    <th>Live </th>
-                    <th>Playback</th>
-                    <th>Live </th>
-                    <th>Playback</th>
-                    <th>Live </th>
-                    <th>Playback</th>
-                    <th>Live </th>
-                    <th>Playback</th>
-                    <th>Live </th>
-                    <th>Playback</th>
-                    <th>Live </th>
-                    <th>Playback</th>
-                    <th>Live </th>
-                    <th>Playback</th>
-                    <th>Live </th>
-                    <th>Playback</th>
-                    <th>Live </th>
-                    <th>Playback</th>
-                    <th>Live </th>
-                    <th>Playback</th>
-                    <th>Live </th>
-                    <th>Playback</th>
-                    <th>Live </th>
-                    <th>Playback</th>
-                    <th>Live </th>
-                    <th>Playback</th>
-                    <th>Live </th>
-                    <th>Playback</th>
-                </tr>
-                <tr>
-                    <td>01.08.2023</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                        <tr>
+                            <th rowspan="2">Date</th>
+                            <th rowspan="2">Live</th>
+                            <th rowspan="2">Playback</th>
+                            <th rowspan="2">Live </th>
+                            <th rowspan="2">Playback</th>
+                            <th rowspan="2">Live </th>
+                            <th rowspan="2">Playback</th>
+                            <th rowspan="2">Live </th>
+                            <th rowspan="2">Playback</th>
+                            <th rowspan="2">Live </th>
+                            <th rowspan="2">Playback</th>
+                            <th rowspan="2">Live </th>
+                            <th rowspan="2">Playback</th>
+                            <th rowspan="2">Live </th>
+                            <th rowspan="2">Playback</th>
+                            <th rowspan="2">Live </th>
+                            <th rowspan="2">Playback</th>
+                            <th rowspan="2">Live </th>
+                            <th rowspan="2">Playback</th>
+                            <th rowspan="2">Live </th>
+                            <th rowspan="2">Playback</th>
+                            <th rowspan="2">Live </th>
+                            <th rowspan="2">Playback</th>
+                            <th rowspan="2">Live </th>
+                            <th rowspan="2">Playback</th>
+                            <th rowspan="2">Live </th>
+                            <th rowspan="2">Playback</th>
+                            <th rowspan="2">Live </th>
+                            <th rowspan="2">Playback</th>
+                            <th rowspan="2">Live </th>
+                            <th rowspan="2">Playback</th>
+                            <th rowspan="2">Live </th>
+                            <th rowspan="2">Playback</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01.08.2023</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                            <td>Working</td>
+                        </tr>
 
-                <tr>
-                    <td>02.08.2023</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
 
-                <tr>
-                    <td>03.08.2023</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                        <tr>
+                            <td>02.08.2023</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
 
-                <tr>
-                    <td>04.08.2023</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                        <tr>
+                            <td>03.08.2023</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
 
-                <tr>
-                    <td>05.08.2023</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                        <tr>
+                            <td>04.08.2023</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
 
-                <tr>
-                    <td>06.08.2023</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                        <tr>
+                            <td>05.08.2023</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
 
-                <tr>
-                    <td>07.08.2023</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table>
-            <div class="download">
-                <button>Download</button>
+                        <tr>
+                            <td>06.08.2023</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>07.08.2023</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+
             </div>
         </div>
 
     </div>
+
+    <script>
+
+        window.jsPDF = window.jspdf.jsPDF;
+        var docPDF = new jsPDF();
+        function print() {
+            var elementHTML = document.querySelector("#printTable");
+            docPDF.html(elementHTML, {
+                callback: function (docPDF) {
+                    docPDF.save('DVR-1 Report.pdf');
+                },
+                x: 17,
+                y: 10,
+                width: 180,
+                windowWidth: 2500
+            });
+        }
+    </script>
+
 </body>
 
 </html>

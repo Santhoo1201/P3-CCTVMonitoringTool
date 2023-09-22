@@ -6,167 +6,168 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Report Page</title>
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
 </head>
 
 <body>
+
     <div class="dashboard">
         <div class="code">
             <div class="sidebar">
                 <h2>Report Status</h2>
+                <a href="../Camera status/index.html">Home</a>
                 <a href="./index-dvr1-report.html">DVR-1</a>
                 <a class="active" href="#">DVR-2</a>
                 <a href="./index-dvr3-report.html">DVR-3</a>
+                <hr>
+                <button id="printButton" onclick="print()"><img src="icons8-pdf-40.png" alt="">Download as PDF</button>
+
             </div>
         </div>
 
-        <div class="report">
-            <h1>DVR-2</h1>
-            <table class="table">
-                <tr>
-                    <th rowspan="1">Camera Name</th>
-                    <th colspan="2" rowspan="2">Cam-1 <br>Training Room(Board View) <br>3rd-Floor</th>
-                    <th colspan="2" rowspan="2">Cam-2 <br>Dining Hall <br>3rd-Floor</th>
-                    <th colspan="2" rowspan="2">Cam-3 <br>MD Cabin<br>3rd-Floor</th>
-                    <th colspan="2" rowspan="2">Cam-4 <br>Waiting Hall<br>3rd-Floor</th>
-                    <th colspan="2" rowspan="2">Cam-5 <br>Training Room(Entry View) <br>3rd-Floor</th>
-                    <th colspan="2" rowspan="2">Cam-6 <br>Store Room<br>3rd-Floor</th>
-                </tr>
-                <tr>
-                    <th rowspan="2">Date</th>
-                </tr>
-                <tr>
-                    <th>Live</th>
-                    <th>Playback</th>
-                    <th>Live </th>
-                    <th>Playback</th>
-                    <th>Live </th>
-                    <th>Playback</th>
-                    <th>Live </th>
-                    <th>Playback</th>
-                    <th>Live </th>
-                    <th>Playback</th>
-                    <th>Live </th>
-                    <th>Playback</th>
-                </tr>
-                <tr>
-                    <td>01.08.2023</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                   
-                </tr>
+        <div id="printTable">
+            <div class="report">
+                <div class="download">
+                    <div>
+                        <h1>DVR-2</h1>
+                    </div>
+                </div>
 
-                <tr>
-                    <td>02.08.2023</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                <table class="table" id="tbl">
+                    <thead>
+                        <tr>
+                            <th rowspan="1">Camera Name</th>
+                            <th colspan="2" rowspan="1">Cam-1 <br>Training Room(Board View) <br>3rd-Floor</th>
+                            <th colspan="2" rowspan="1">Cam-2 <br>Dining Hall <br>3rd-Floor</th>
+                            <th colspan="2" rowspan="1">Cam-3 <br>MD Cabin<br>3rd-Floor</th>
+                            <th colspan="2" rowspan="1">Cam-4 <br>Waiting Hall<br>3rd-Floor</th>
+                            <th colspan="2" rowspan="1">Cam-5 <br>Training Room(Entry View) <br>3rd-Floor</th>
+                            <th colspan="2" rowspan="1">Cam-6 <br>Store Room<br>3rd-Floor</th>
+                        </tr>
 
-                <tr>
-                    <td>03.08.2023</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                        <tr>
+                            <th rowspan="2">Date</th>
+                            <th rowspan="2">Live</th>
+                            <th rowspan="2">Playback</th>
+                            <th rowspan="2">Live </th>
+                            <th rowspan="2">Playback</th>
+                            <th rowspan="2">Live </th>
+                            <th rowspan="2">Playback</th>
+                            <th rowspan="2">Live </th>
+                            <th rowspan="2">Playback</th>
+                            <th rowspan="2">Live </th>
+                            <th rowspan="2">Playback</th>
+                            <th rowspan="2">Live </th>
+                            <th rowspan="2">Playback</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>01.08.2023</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>02.08.2023</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>03.08.2023</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>04.08.2023</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>05.08.2023</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
 
-                <tr>
-                    <td>04.08.2023</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                    </tbody>
 
-                <tr>
-                    <td>05.08.2023</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                </table>
 
-                <tr>
-                    <td>06.08.2023</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-
-                <tr>
-                    <td>07.08.2023</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table>
-            <div class="download">
-                <button>Download</button>
             </div>
+
         </div>
 
-    </div>
+
+        <script>
+
+            window.jsPDF = window.jspdf.jsPDF;
+            var docPDF = new jsPDF();
+            function print() {
+                var elementHTML = document.querySelector("#printTable");
+                docPDF.html(elementHTML, {
+                    callback: function (docPDF) {
+                        docPDF.save('DVR-2 Report.pdf');
+                    },
+                    x: 17,
+                    y: 10,
+                    width: 180,
+                    windowWidth: 2500
+                });
+            }
+        </script>
+
 </body>
 
 </html>
